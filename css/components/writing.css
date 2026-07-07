@@ -1,0 +1,62 @@
+.writing-panel {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12);
+  box-shadow: var(--shadow-sm);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+.writing-panel__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  margin-bottom: var(--space-6);
+}
+
+.writing-panel__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.writing-panel__title {
+  margin-bottom: var(--space-4);
+}
+
+.writing-panel__lede {
+  margin-bottom: var(--space-8);
+  max-width: 55ch;
+}
+
+.writing-panel__posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border);
+}
+
+.writing-panel__posts a {
+  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  transition: color var(--transition-fast);
+}
+
+.writing-panel__posts a:hover {
+  color: var(--syn-func);
+}
+
+@media (max-width: 640px) {
+  .writing-panel {
+    padding: var(--space-8);
+  }
+}

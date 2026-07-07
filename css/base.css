@@ -1,0 +1,61 @@
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 4vw + 1rem, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 2.2vw + 1rem, 2.4rem); }
+h3 { font-size: 1.25rem; }
+
+p {
+  color: var(--ink-soft);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--syn-keyword);
+  color: #fff;
+}
+
+/* focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--syn-func);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* syntax-colored inline spans, used inside headings */
+.tok-keyword { color: var(--syn-keyword); }
+.tok-string  { color: var(--syn-string); }
+.tok-func    { color: var(--syn-func); }
+.tok-comment { color: var(--syn-comment); font-weight: 400; font-style: italic; }
+.tok-number  { color: var(--syn-number); }
+.tok-punct   { color: var(--muted); font-weight: 400; }
+
+.blink-cursor {
+  display: inline-block;
+  width: 0.5ch;
+  background: var(--syn-func);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

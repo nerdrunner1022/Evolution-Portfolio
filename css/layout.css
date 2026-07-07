@@ -1,0 +1,78 @@
+.container {
+  max-width: var(--container-w);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* Every major section is styled like a block of source code:
+   a slim gutter with a line number sits to the left of the content
+   on wide viewports. Decorative only — aria-hidden. */
+.section {
+  position: relative;
+  padding-block: var(--space-24);
+  border-bottom: 1px solid var(--border);
+}
+
+.section__inner {
+  position: relative;
+  padding-left: var(--gutter-w);
+}
+
+.section__linenum {
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: calc(var(--gutter-w) - 14px);
+  text-align: right;
+  color: var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--syn-comment);
+  margin-bottom: var(--space-3);
+}
+
+.section__head {
+  margin-bottom: var(--space-12);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-2col-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 860px) {
+  .grid-2, .grid-3, .grid-2col-cards {
+    grid-template-columns: 1fr;
+  }
+  .section__inner {
+    padding-left: 0;
+  }
+  .section__linenum {
+    display: none;
+  }
+  .section {
+    padding-block: var(--space-16);
+  }
+}

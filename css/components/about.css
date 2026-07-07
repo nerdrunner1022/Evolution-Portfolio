@@ -1,0 +1,25 @@
+.about__text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.about__text p + p {
+  margin-top: var(--space-4);
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 860px) {
+  .about__text,
+  .about__stats {
+    grid-template-columns: 1fr;
+  }
+}
