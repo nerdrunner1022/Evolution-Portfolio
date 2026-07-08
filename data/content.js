@@ -32,7 +32,7 @@ const SITE_DATA = {
       name: "Portfolio",
       description: "My portfolio in vanilla HTML, CSS and JS",
       tags: ["HTML", "CSS", "JS"],
-      link: "#"
+      link: "https://github.com/nerdrunner1022/Evolution-Portfolio"
     }
   ]
 };
