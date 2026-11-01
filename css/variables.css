@@ -53,7 +53,7 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  --container-w: 1220px;
+  --container-w: 100%;
   --container-padding: clamp(var(--space-6), 3vw, var(--space-12));
   --gutter-w: 44px;
 
