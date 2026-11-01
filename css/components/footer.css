@@ -7,17 +7,19 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-12);
+  padding: clamp(var(--space-6), 3.5vw, var(--space-10));
   box-shadow: var(--shadow-sm);
 }
 
 .contact-panel__title {
   margin-bottom: var(--space-2);
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
 }
 
 .contact-panel__links {
   display: flex;
   gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .site-footer {
@@ -37,6 +39,7 @@
 
 .site-footer__socials {
   display: flex;
+  align-items: center;
   gap: var(--space-3);
 }
 
@@ -44,6 +47,10 @@
   .contact-panel {
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
+    padding: var(--space-6);
+  }
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

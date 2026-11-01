@@ -3,23 +3,26 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
+  line-height: 1.6;
   transition: background var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-mono);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.2rem, 4vw + 1rem, 3.6rem); }
-h2 { font-size: clamp(1.7rem, 2.2vw + 1rem, 2.4rem); }
+h1 { font-size: clamp(2.3rem, 4.5vw + 1rem, 3.8rem); font-family: var(--font-display); }
+h2 { font-size: clamp(1.8rem, 2.5vw + 1rem, 2.5rem); }
 h3 { font-size: 1.25rem; }
 
 p {
   color: var(--ink-soft);
+  line-height: 1.65;
 }
 
 code, .mono {
@@ -27,8 +30,8 @@ code, .mono {
 }
 
 ::selection {
-  background: var(--syn-keyword);
-  color: #fff;
+  background: var(--syn-func);
+  color: var(--accent-ink);
 }
 
 /* focus visibility for accessibility */
@@ -45,9 +48,12 @@ textarea:focus-visible {
 .tok-keyword { color: var(--syn-keyword); }
 .tok-string  { color: var(--syn-string); }
 .tok-func    { color: var(--syn-func); }
-.tok-comment { color: var(--syn-comment); font-weight: 400; font-style: italic; }
+.tok-comment { color: var(--syn-comment); font-weight: 500; }
 .tok-number  { color: var(--syn-number); }
 .tok-punct   { color: var(--muted); font-weight: 400; }
+.tok-gold    { color: var(--syn-string); }
+.tok-green   { color: var(--syn-func); }
+.tok-cyan    { color: var(--syn-keyword); }
 
 .blink-cursor {
   display: inline-block;

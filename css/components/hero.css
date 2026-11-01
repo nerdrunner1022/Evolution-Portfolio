@@ -5,20 +5,39 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: var(--space-12);
   align-items: center;
 }
 
-.hero__eyebrow {
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-mono);
-  color: var(--syn-comment);
-  font-size: 0.95rem;
-  margin-bottom: var(--space-3);
+  font-size: 0.82rem;
+  color: var(--syn-func);
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-glow);
+  padding: 0.35em 0.85em;
+  border-radius: 999px;
+  margin-bottom: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.hero__badge .badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--syn-func);
+  box-shadow: 0 0 6px var(--syn-func);
 }
 
 .hero__title {
   margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .hero__title .wave {
@@ -38,14 +57,17 @@
 }
 
 .hero__lede {
-  font-size: 1.15rem;
-  max-width: 46ch;
+  font-size: 1.1rem;
+  max-width: 48ch;
   margin-bottom: var(--space-8);
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
 
 .hero__lede strong {
-  color: var(--ink);
+  color: var(--syn-func);
   font-family: var(--font-mono);
+  font-weight: 600;
 }
 
 .hero__cta {
@@ -53,12 +75,24 @@
   align-items: center;
   gap: var(--space-4);
   flex-wrap: wrap;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.hero__socials-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .hero__socials {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
+}
+
+.hero__subtext {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .hero__photo-wrap {
@@ -66,14 +100,26 @@
   justify-self: center;
 }
 
-.hero__photo-frame {
-  width: min(360px, 80vw);
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.hero__photo-card {
+  width: min(340px, 80vw);
+  background: radial-gradient(circle at top right, var(--accent-subtle), transparent 70%), var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md), 0 0 20px var(--accent-subtle);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.hero__photo-card:hover {
+  border-color: var(--syn-func);
+  box-shadow: var(--shadow-lg), 0 0 30px var(--accent-glow);
+}
+
+.hero__photo-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .hero__photo-frame img {
@@ -83,22 +129,24 @@
 }
 
 .hero__photo-tag {
-  position: absolute;
-  bottom: -14px;
-  left: -14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-hover);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--syn-func);
-  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 @media (max-width: 860px) {
   .hero__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-12);
   }
   .hero__photo-wrap {
     order: -1;

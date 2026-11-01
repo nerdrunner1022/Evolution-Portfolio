@@ -1,6 +1,5 @@
 // js/projects-render.js
-// Builds the project cards from SITE_DATA.projects (see data/content.js),
-// so adding/removing a project only requires editing that data file.
+// Builds the project cards from SITE_DATA.projects (see data/content.js)
 
 function renderProjects() {
   const grid = document.querySelector('[data-projects-grid]');
@@ -10,14 +9,17 @@ function renderProjects() {
     .map(
       (project) => `
         <article class="project-card reveal">
-          <h3 class="project-card__title">
-            <span class="folder" aria-hidden="true">📁</span> ${project.name}
-          </h3>
+          <div class="project-card__header">
+            <span class="folder" aria-hidden="true">📁</span>
+            <h3 class="project-card__title">${project.name}</h3>
+          </div>
           <p class="project-card__desc">${project.description}</p>
           <div class="project-card__tags">
             ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}
           </div>
-          <a class="btn btn--primary" href="${project.link}">View Project &gt;</a>
+          <a class="project-card__link" href="${project.link}" target="_blank" rel="noopener noreferrer">
+            View Project <span class="arrow">-&gt;</span>
+          </a>
         </article>
       `
     )

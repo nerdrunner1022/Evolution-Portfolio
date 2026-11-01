@@ -2,8 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg);
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: background var(--transition-base), border-color var(--transition-base);
 }
 
 .navbar__inner {
@@ -19,18 +22,25 @@
   gap: var(--space-2);
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
-.navbar__brand svg {
-  width: 22px;
-  height: 22px;
-  color: var(--syn-keyword);
+.navbar__brand .brand-logo {
+  display: block;
+  height: 20px;
+  width: auto;
+  flex-shrink: 0;
+  /* Brand mark inherits the theme foreground: light ink on dark, dark ink on light. */
+  color: var(--ink);
+  transition: color var(--transition-fast), filter var(--transition-fast);
 }
 
-.navbar__logo {
-  width: 22px;
-  height: auto;
+.navbar__brand:hover .brand-logo {
+  color: var(--syn-func);
+  filter: drop-shadow(0 0 6px var(--accent-glow));
 }
 
 .navbar__links {
@@ -38,7 +48,7 @@
   align-items: center;
   gap: var(--space-6);
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .navbar__links a {
@@ -46,11 +56,24 @@
   color: var(--ink-soft);
   padding-block: 4px;
   transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.navbar__links a .tok-comment {
+  opacity: 0.6;
+  margin-right: 2px;
+  transition: color var(--transition-fast);
 }
 
 .navbar__links a:hover,
 .navbar__links a.is-active {
   color: var(--ink);
+}
+
+.navbar__links a:hover .tok-comment,
+.navbar__links a.is-active .tok-comment {
+  color: var(--syn-func);
+  opacity: 1;
 }
 
 .navbar__links a.is-active::after {
@@ -61,7 +84,9 @@
   bottom: -2px;
   height: 2px;
   background: var(--syn-func);
+  box-shadow: 0 0 6px var(--syn-func);
   border-radius: 2px;
+  transition: background var(--transition-fast);
 }
 
 .navbar__actions {
@@ -70,20 +95,65 @@
   gap: var(--space-3);
 }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  border-color: var(--syn-func);
+  transform: rotate(15deg);
+}
+
+.theme-toggle .icon-sun {
+  display: inline-block;
+  color: var(--syn-string);
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+  color: var(--syn-func);
+}
+
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: inline-block;
+  color: var(--syn-string);
+}
+
+.navbar__cta {
+  font-size: 0.85rem;
+  padding: 0.5em 1.1em;
+}
+
 .nav-toggle {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface);
 }
 
 @media (max-width: 860px) {
   .navbar__links {
     position: fixed;
-    inset: 64px 0 auto 0;
+    inset: 60px 0 auto 0;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
@@ -102,10 +172,6 @@
     width: 100%;
     padding-block: var(--space-3);
     border-bottom: 1px solid var(--border);
-  }
-
-  .navbar__cta {
-    display: none;
   }
 
   .nav-toggle {

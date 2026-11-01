@@ -2,11 +2,30 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-10, var(--space-8));
 }
 
-.about__text p + p {
-  margin-top: var(--space-4);
+.about__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__col p {
+  margin-bottom: var(--space-4);
+}
+
+.about__highlight {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.about__highlight span {
+  color: var(--syn-func);
+  font-weight: 700;
+  margin-right: 4px;
 }
 
 .about__stats {
